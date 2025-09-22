@@ -4,7 +4,13 @@ import Logo from '@/app/_components/Logo'
 import Navigation from '@/app/_components/Navigation'
 
 export const metadata = {
-	title: 'The Wild Oasis',
+	// title: 'The Wild Oasis',
+	title: {
+		template: '%s | The Wild Oasis',
+		default: 'Welcome | The Wild Oasis',
+	},
+	description:
+		'Luxurious cabin hotel, located in the heart of nature. Escape the city and unwind in our cozy cabins surrounded by breathtaking landscapes.',
 }
 
 export default function RootLayout({ children }) {
