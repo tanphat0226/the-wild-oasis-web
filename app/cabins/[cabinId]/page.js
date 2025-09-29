@@ -1,3 +1,5 @@
+import DateSelector from '@/app/_components/DateSelector'
+import ReservationForm from '@/app/_components/ReservationForm'
 import TextExpander from '@/app/_components/TextExpander'
 import { getCabin, getCabins } from '@/app/_lib/data-service'
 import { EyeSlashIcon, MapPinIcon, UsersIcon } from '@heroicons/react/24/solid'
@@ -84,9 +86,15 @@ export default async function Page({ params }) {
 			</div>
 
 			<div>
-				<h2 className='text-5xl font-semibold text-center'>
-					Reserve today. Pay on arrival.
+				<h2 className='text-5xl font-semibold text-center text-accent-400'>
+					Reserve {name} today. Pay on arrival.
 				</h2>
+
+				<div className='grid grid-cols-[auto_auto] border border-primary-800 min-h-[100px]'>
+					<DateSelector />
+
+					<ReservationForm />
+				</div>
 			</div>
 		</div>
 	)
