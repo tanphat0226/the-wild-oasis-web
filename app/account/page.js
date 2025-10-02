@@ -1,7 +1,12 @@
-export default function Page() {
+import { auth } from '@/app/_lib/auth'
+
+export default async function Page() {
+	const session = await auth()
+	const firstName = session.user.name.split(' ').at(0) || 'Guest'
+
 	return (
 		<h2 className='font-semibold text-2xl text-accent-400 mb-7'>
-			Welcome, Ryan
+			Welcome, {firstName}
 		</h2>
 	)
 }
