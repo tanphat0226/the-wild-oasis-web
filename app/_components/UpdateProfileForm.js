@@ -1,7 +1,7 @@
 'use client'
 
-import { useFormStatus } from 'react-dom'
 import { updateProfile } from '../_lib/actions'
+import { SubmitButton } from './SubmitButton'
 
 function UpdateProfileForm({ children, guest }) {
 	const { fullName, email, nationalID, countryFlag } = guest
@@ -35,6 +35,7 @@ function UpdateProfileForm({ children, guest }) {
 				<div className='flex items-center justify-between'>
 					<label htmlFor='nationality'>Where are you from?</label>
 					{countryFlag ? (
+						// eslint-disable-next-line @next/next/no-img-element
 						<img
 							src={countryFlag}
 							alt='Country flag'
@@ -55,23 +56,11 @@ function UpdateProfileForm({ children, guest }) {
 			</div>
 
 			<div className='flex justify-end items-center gap-6'>
-				<Button />
+				<SubmitButton pendingLabel='Updating...'>
+					Update profile
+				</SubmitButton>
 			</div>
 		</form>
-	)
-}
-
-function Button() {
-	// Just use in form not component to enable pending state
-	// And in client component
-	const { pending } = useFormStatus()
-	return (
-		<button
-			disabled={pending}
-			className='bg-accent-500 px-8 py-4 text-primary-800 font-semibold hover:bg-accent-600 transition-all disabled:cursor-not-allowed disabled:bg-gray-500 disabled:text-gray-300'
-		>
-			{pending ? 'Updating...' : 'Update profile'}
-		</button>
 	)
 }
 
